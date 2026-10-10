@@ -1,0 +1,43 @@
+{
+  "headlineWord1": "UPTHRUST",
+  "headlineWord2": "DESIGN",
+  "channels": [
+    {
+      "title": "upthrust.agency",
+      "url": "https://upthrust.agency",
+      "description": "add description here",
+      "email": "hello@upthrust.agency"
+    },
+    {
+      "title": "upthrust.io",
+      "url": "https://upthrust.io",
+      "description": "add description here",
+      "email": "hello@upthrust.io"
+    }
+  ],
+  "newsletter": {
+    "heading": "Sign up for our emails",
+    "consentText": "By checking this box sign up for our newsletter and receive marketing emails and updates on our services. You can unsubscribe at any time.",
+    "placeholder": "typehere@youremail.com",
+    "buttonText": "Submit",
+    "successMessage": "Thanks for subscribing — you're on the list."
+  },
+  "tagline": "Lorem ipsum dolor sit amet consectetur",
+  "socialLinks": [
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/"
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Privacy Policy",
+      "href": "#privacy"
+    }
+  ],
+  "copyright": "© Upthrust Design"
+}

@@ -1,0 +1,18 @@
+{
+  "headline": "Bold design that performs",
+  "leftNote": {
+    "line1": "STRATEGY IS",
+    "circledWord": "CHEAPER"
+  },
+  "pillars": [
+    "IDENTITY",
+    "EXPERIENCE",
+    "MOTION"
+  ],
+  "rightNote": {
+    "line1": "COMFORTABLE",
+    "underlinedPhrase": "IS EXPENSIVE"
+  },
+  "statuePoster": "/images/hero/statuePoster.png",
+  "statueAlt": "Iridescent neoclassical bust of Venus, the Upthrust hero artwork"
+}

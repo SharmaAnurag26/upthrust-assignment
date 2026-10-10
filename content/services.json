@@ -1,0 +1,61 @@
+{
+  "kicker": "WHAT CAN WE DO FOR YOU",
+  "items": [
+    {
+      "title": "Strategy and Insight",
+      "description": "We interrogate what others assume. Then we build the brief behind the brief.",
+      "capabilities": [
+        "Brand strategy & positioning",
+        "Messaging & tone of voice",
+        "Audience & competitor research",
+        "Workshops & creative sprints"
+      ],
+      "image": "/images/services/items/0/image.png",
+      "imageAlt": "Strategy workshop board with audience personas and research notes",
+      "ctaText": "CONTACT",
+      "ctaHref": "#contact"
+    },
+    {
+      "title": "Brand & visual identity",
+      "description": "We build systems, not just logos. So you own the category, not just the conversation.",
+      "capabilities": [
+        "Brand identity & visual language",
+        "Guidelines & naming",
+        "Illustration & iconography",
+        "Brand architecture & systems"
+      ],
+      "image": "/images/services/items/1/image.png",
+      "imageAlt": "Brand identity system showing logo, colour and typography explorations",
+      "ctaText": "CONTACT",
+      "ctaHref": "#contact"
+    },
+    {
+      "title": "Product & digital experience",
+      "description": "We design for humans and metrics. So users stay, engage, and come back.",
+      "capabilities": [
+        "UI/UX & website design",
+        "Design systems & prototyping",
+        "User research & testing",
+        "Motion graphics & micro-interactions"
+      ],
+      "image": "/images/services/items/2/image.png",
+      "imageAlt": "Website and app interface designs laid out as a product showcase",
+      "ctaText": "CONTACT",
+      "ctaHref": "#contact"
+    },
+    {
+      "title": "Creative & campaign production",
+      "description": "We turn attention into action. Then we prove it worked.",
+      "capabilities": [
+        "Campaign creative & social content",
+        "Presentations & pitch decks",
+        "Marketing collateral & ad creative",
+        "Spatial & physical experiences (exhibitions, placemaking & branded environments)"
+      ],
+      "image": "/images/services/items/3/image.png",
+      "imageAlt": "Campaign creative and marketing collateral mock-ups",
+      "ctaText": "CONTACT",
+      "ctaHref": "#contact"
+    }
+  ]
+}
