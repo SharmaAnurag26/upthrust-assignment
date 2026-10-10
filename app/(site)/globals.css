@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. `inline` makes Tailwind emit the next/font variables directly, so
+ * `font-sans` → Inter and `font-anton` → Anton, and `bg-brand` / `text-brand` → #FF4200.
+ * (next/font variables use a different name to avoid a circular `var()` reference.)
+ */
+@theme inline {
+  --font-sans: var(--next-font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-anton: var(--next-font-anton), Impact, "Arial Narrow", sans-serif;
+  --color-brand: #ff4200;
+  /* Darker brand shade for small text on white: #FF4200 is 3.5:1, this is 4.9:1 (WCAG AA). */
+  --color-brand-ink: #d13600;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* One consistent, high-contrast focus ring for keyboard users across the whole page. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbars on horizontally scrolling rows while keeping them scrollable. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

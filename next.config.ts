@@ -1,12 +1,29 @@
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+];
+
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [75],
+  },
+  async headers() {
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Design assets are content-addressed by filename and never edited in place.
+      { source: "/(art|models)/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

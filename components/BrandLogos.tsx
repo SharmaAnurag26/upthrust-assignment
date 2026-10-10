@@ -1,5 +1,3 @@
-import React from "react";
-
 export function ZomatoLogo({ className = "h-5" }: { className?: string }) {
   return (
     <span className={`font-black tracking-tight text-xl md:text-2xl lowercase select-none text-black ${className}`}>
@@ -51,20 +49,21 @@ export function DellLogo({ className = "h-6" }: { className?: string }) {
   );
 }
 
-export function ClientLogoItem({ id }: { id: string }) {
-  switch (id) {
+/** Typographic stand-ins for client logos, matched by client name from the CMS. */
+export function ClientLogoItem({ name }: { name: string }) {
+  const key = name.toLowerCase().normalize("NFD").replace(/[^a-z]/g, "");
+  switch (key) {
     case "zomato":
       return <ZomatoLogo />;
     case "bosch":
       return <BoschLogo />;
     case "loreal":
-    case "loreal-2":
       return <LorealLogo />;
     case "vega":
       return <VegaLogo />;
     case "dell":
       return <DellLogo />;
     default:
-      return null;
+      return <span className="text-lg font-bold uppercase text-black">{name}</span>;
   }
 }

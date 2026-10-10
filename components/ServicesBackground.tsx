@@ -1,8 +1,6 @@
-import React from "react";
-
 export function ServicesBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none bg-black">
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-black" aria-hidden="true">
       {/* Wavy wireframe mesh background to match the organic 3D aesthetic */}
       <svg
         viewBox="0 0 1440 900"
