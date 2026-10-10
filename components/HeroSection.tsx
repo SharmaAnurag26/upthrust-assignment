@@ -77,7 +77,7 @@ export function HeroSection({ hero }: { hero: HeroContent }) {
             width={1240}
             height={161}
             loading="eager"
-            className="h-auto max-h-[18vh] w-full object-contain"
+            className="mx-auto block h-auto max-h-[18vh] w-auto max-w-full"
           />
         </div>
       </div>

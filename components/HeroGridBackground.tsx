@@ -21,6 +21,7 @@ export function HeroGridBackground() {
           alt=""
           width={1726}
           height={1357}
+          loading="eager"
           sizes="(min-width: 1280px) 860px, (min-width: 1024px) 780px, (min-width: 640px) 580px, 300px"
           className="h-auto w-full"
         />

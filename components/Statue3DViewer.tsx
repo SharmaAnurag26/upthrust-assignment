@@ -7,9 +7,9 @@ import Image from "next/image";
 const ModelViewer = "model-viewer" as React.ElementType;
 const MODEL_VIEWER_SRC = "https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js";
 
-// Only devices that can comfortably afford WebGL get the interactive model. Phones and tablets
-// keep the poster (the same artwork, pre-rendered), which keeps mobile TBT and LCP low.
-const CAN_AFFORD_3D = "(min-width: 1024px) and (pointer: fine)";
+// Interactive model for devices with a mouse/trackpad or a tablet-sized screen and up. Phones keep
+// the poster (the same artwork, pre-rendered), which keeps mobile TBT and LCP low.
+const CAN_AFFORD_3D = "(pointer: fine), (min-width: 768px)";
 
 interface Statue3DViewerProps {
   posterSrc: string;
@@ -64,9 +64,9 @@ function loadModelViewerWhenIdle() {
 
 /**
  * Progressive enhancement: the poster image is server-rendered and is the page's LCP element.
- * On capable desktops the Draco-compressed 3D model (126 KB) fades in over it once loaded.
+ * On desktops and tablets the Draco-compressed 3D model (126 KB) fades in over it once loaded.
  */
-export function Statue3DViewer({ posterSrc, alt, modelSrc = "/models/statue.glb" }: Statue3DViewerProps) {
+export function Statue3DViewer({ posterSrc, alt, modelSrc = "/models/venus-bust.glb" }: Statue3DViewerProps) {
   const viewerRef = useRef<HTMLElement>(null);
   const enable3D = useMediaQuery(CAN_AFFORD_3D);
   const [modelReady, setModelReady] = useState(false);

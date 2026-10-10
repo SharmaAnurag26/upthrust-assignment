@@ -12,7 +12,7 @@ Responsive landing page built from the Upthrust Figma file and assets, with CMS-
 | **Tailwind CSS v4** | Design tokens (brand colours, fonts) live in one `@theme` block; responsive variants map directly onto the 375 / 768 / 1440 breakpoints. |
 | **Keystatic CMS** | Git-based headless CMS: content is JSON in the repo, editors get a friendly UI, there's no extra database or paid service, and every content change is versioned and reviewable like code. |
 | **Vercel** | Zero-config Next.js hosting, preview deployments per branch, edge caching for images. |
-| **`<model-viewer>`** | Google's web component for the 3D statue; loaded only on desktop, after the page is idle. |
+| **`<model-viewer>`** | Google's web component for the 3D statue; loaded on desktop and tablet (not phones), after the page is idle. |
 
 Trade-off considered: a hosted CMS (Sanity, Contentful) suits large editorial teams and real-time preview better, but adds an account, an API dependency and cost. For a marketing site edited a few times a month, Git-based content is simpler and safer. The content layer (`lib/content.ts`) is the only file that would change if we switched.
 
@@ -97,7 +97,7 @@ See [`.env.example`](.env.example). Set in Vercel → Settings → Environment V
 
 - **SEO:** unique title and description, canonical, Open Graph and Twitter tags, OG image, `robots.txt`, `sitemap.xml`, one H1 → H2 → H3, JSON-LD (`Organization` with its service catalogue + `WebSite`). Fully static HTML.
 - **Accessibility:** semantic landmarks, skip link, visible `:focus-visible` ring, labelled form fields with linked errors, ARIA carousel pattern with a keyboard-scrollable track, decorative images `alt=""`, `prefers-reduced-motion` respected, brand orange darkened for small text (#D13600) to meet WCAG AA.
-- **Performance:** `next/image` (AVIF/WebP, responsive sizes), self-hosted fonts via `next/font`, 3D model 1.58 MB → 126 KB (Draco), 1.7 MB blueprint SVG → 120 KB PNG, unused assets removed, 3D library deferred until idle and desktop-only, services carousel server-rendered with a small client controller, GTM loaded after hydration.
+- **Performance:** `next/image` (AVIF/WebP, responsive sizes), self-hosted fonts via `next/font`, 3D model 1.58 MB → 126 KB (Draco), 1.7 MB blueprint SVG → 120 KB PNG, unused assets removed, 3D library deferred until idle and skipped on phones, services carousel server-rendered with a small client controller, GTM loaded after hydration.
 - Local Lighthouse (production build): Accessibility 100 · SEO 100 · Best Practices 96. Measure Performance with PageSpeed Insights on the deployed URL; local mobile runs on a slow machine vary ±8 points.
 
 ## Safe updates after launch
@@ -114,5 +114,5 @@ Claude Code (Anthropic) for code review, refactoring (CMS integration, form back
 - Footer copy "add description here" / "Lorem ipsum" comes from the Figma file; it's placeholder text to be replaced via the CMS.
 - No rate limiting on the form beyond the honeypot. Next: Vercel KV / Upstash rate limit, double opt-in email via Resend, CRM sync (HubSpot).
 - Privacy Policy link is a placeholder anchor.
-- Mobile shows a static render of the statue; 3D is desktop-only by design for performance.
+- Phones show a static render of the statue; 3D loads on mouse/trackpad devices and screens ≥768 px, by design for performance.
 - With more time: visual regression tests (Playwright), Lighthouse CI on each PR, consent banner (Consent Mode v2) before GTM fires marketing tags.

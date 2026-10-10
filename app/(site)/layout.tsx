@@ -37,7 +37,10 @@ export default function SiteLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${anton.variable}`}>
       {gtmId && <GoogleTagManager gtmId={gtmId} />}
-      <body className="min-h-screen bg-white font-sans text-black antialiased selection:bg-brand selection:text-white">
+      {/* suppressHydrationWarning: browser extensions (e.g. anti-trackers) inject attributes on <body>. */}
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-white font-sans text-black antialiased selection:bg-brand selection:text-white">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-black focus:px-4 focus:py-2 focus:text-white"

@@ -18,11 +18,9 @@ const nextConfig: NextConfig = {
     qualities: [75],
   },
   async headers() {
-    return [
-      { source: "/:path*", headers: securityHeaders },
-      // Design assets are content-addressed by filename and never edited in place.
-      { source: "/(art|models)/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
-    ];
+    // Files in /public keep their names when replaced, so they use the default revalidating cache
+    // (a long "immutable" cache would keep serving the old file to returning visitors).
+    return [{ source: "/:path*", headers: securityHeaders }];
   },
   turbopack: {
     rules: {
