@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local form submissions (contain personal data)
+/data/
+
+# personal interview notes
+INTERVIEW_PREP.md
+
+# allow the env template
+!.env.example
